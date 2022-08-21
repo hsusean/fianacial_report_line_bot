@@ -2,7 +2,7 @@ import os
 from datetime import datetime
 
 from flask import Flask, abort, request
-from contorller.finance_report_crawler import get_each_stock_finance_report
+from controller.finance_report_crawler import get_each_stock_finance_report
 # https://github.com/line/line-bot-sdk-python
 from linebot import LineBotApi, WebhookHandler
 from linebot.exceptions import InvalidSignatureError
