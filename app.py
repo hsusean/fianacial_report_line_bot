@@ -1,6 +1,7 @@
 import os
 from datetime import datetime
-
+from flask_cors import CORS
+from flasgger import Swagger
 from flask import Flask, abort, request
 from route.homework import blueprint as blueprint_homework
 # https://github.com/line/line-bot-sdk-python
@@ -13,6 +14,12 @@ app = Flask(__name__)
 line_bot_api = LineBotApi(os.environ.get("CHANNEL_ACCESS_TOKEN"))
 handler = WebhookHandler(os.environ.get("CHANNEL_SECRET"))
 
+CORS(app)
+#doc
+Swagger(app)
+# app.config["DEBUG"] = True
+app.config['SWAGGER'] = {'uiversion': 3}
+app.config["JSON_AS_ASCII"] = False
 
 @app.route("/", methods=["GET", "POST"])
 def callback():
