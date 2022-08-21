@@ -1,0 +1,23 @@
+In this API we get one planned order
+---
+tags:
+  - Hello World
+consumes:
+  - application/json
+produces:
+  - application/json
+parameters:
+  - name: item_name
+    type: dictionary
+    required: True
+    example: '{ "item_name" : "Apple" }'
+
+responses:
+  200:
+    description: The item name is Apple.
+    examples:
+      body: {"result": "success"}
+  400:
+    description: The item name is not Apple or something went wrong.
+    examples:
+      body: {"result": "fail"}

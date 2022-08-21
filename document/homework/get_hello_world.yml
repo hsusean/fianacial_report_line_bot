@@ -1,0 +1,15 @@
+In this API for homework api test
+---
+tags:
+  - Hello World
+consumes:
+  - application/json
+produces:
+  - application/json
+
+responses:
+  200:
+    description: Successfully get hello!
+      
+  400:
+    description: Create API Failure.
