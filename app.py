@@ -2,7 +2,7 @@ import os
 from datetime import datetime
 from flask_cors import CORS
 from flasgger import Swagger
-from flask import Flask, abort, request
+from flask import Flask, abort, request, make_response
 from route.homework import blueprint as blueprint_homework
 # https://github.com/line/line-bot-sdk-python
 from linebot import LineBotApi, WebhookHandler
