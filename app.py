@@ -39,5 +39,5 @@ def handle_message(event):
     stock_id = get_message[1:]
     res = get_each_stock_finance_report(stock_id, report_type)
     # Send To Line
-    reply = TextSendMessage(text='''{}'''.format(res))
+    reply = TextSendMessage(text='''{}'''.format(123))
     line_bot_api.reply_message(event.reply_token, reply)
