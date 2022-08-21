@@ -18,7 +18,7 @@ handler = WebhookHandler(os.environ.get("CHANNEL_SECRET"))
 def callback():
 
     if request.method == "GET":
-        return "Hello Heroku"
+        return "Hello Fianacial Report Bot"
     if request.method == "POST":
         signature = request.headers["X-Line-Signature"]
         body = request.get_data(as_text=True)
@@ -36,5 +36,5 @@ def handle_message(event):
     get_message = event.message.text
 
     # Send To Line
-    reply = TextSendMessage(text=f"{get_message}")
+    reply = TextSendMessage(text=f"幹你娘")
     line_bot_api.reply_message(event.reply_token, reply)
