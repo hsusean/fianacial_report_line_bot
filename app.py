@@ -46,14 +46,14 @@ def handle_message(event):
     reply = TextSendMessage(text=f"{get_message}")
     line_bot_api.reply_message(event.reply_token, reply)
 
-# init api
-app.register_blueprint(blueprint_homework, url_prefix='/api/homework')
+# # init api
+# app.register_blueprint(blueprint_homework, url_prefix='/api/homework')
 
-if __name__ == '__main__':
-    app.run(
-        host='https://7702e40dbf62.ngrok.io/callback',#os.getenv('SERV_IP', '172.17.196.230'),
-        # port=9897,#os.getenv('SERV_PORT', 9897),
-        # threaded=True,
-        # debug = True
-    )
+# if __name__ == '__main__':
+#     app.run(
+#         host='https://7702e40dbf62.ngrok.io/callback',#os.getenv('SERV_IP', '172.17.196.230'),
+#         # port=9897,#os.getenv('SERV_PORT', 9897),
+#         # threaded=True,
+#         # debug = True
+#     )
     
