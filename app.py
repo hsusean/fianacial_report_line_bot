@@ -2,7 +2,7 @@ import os
 from datetime import datetime
 
 from flask import Flask, abort, request
-
+from contorller.finance_report_crawler import get_each_stock_finance_report
 # https://github.com/line/line-bot-sdk-python
 from linebot import LineBotApi, WebhookHandler
 from linebot.exceptions import InvalidSignatureError
@@ -35,6 +35,9 @@ def callback():
 def handle_message(event):
     get_message = event.message.text
 
+    report_type = get_message[0]
+    stock_id = get_message[1:]
+    res = get_each_stock_finance_report(stock_id, report_type)
     # Send To Line
-    reply = TextSendMessage(text=f"幹你娘")
+    reply = TextSendMessage(text='''{}'''.format(res))
     line_bot_api.reply_message(event.reply_token, reply)
