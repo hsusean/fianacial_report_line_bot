@@ -26,7 +26,7 @@ def get_each_stock_finance_report(stock_id, report_type, year=None, season=None,
     elif report_type == '權益變動表' or report_type == 'e':
         url = 'https://mops.twse.com.tw/mops/web/ajax_t164sb06'
     else:
-        print('type does not match')
+        raise ValueError('type does not match')
     payload = {
                 'encodeURIComponent': '1',
                 'step': '1',
