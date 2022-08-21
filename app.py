@@ -20,8 +20,8 @@ from route.homework import blueprint as blueprint_homework
 
 
 app = Flask(__name__)
-line_bot_api = LineBotApi(LINE_CHANNEL_ACCESS_TOKEN)
-handler = WebhookHandler(LINE_CHANNEL_SECRET)
+line_bot_api = LineBotApi(os.environ.get(LINE_CHANNEL_ACCESS_TOKEN))
+handler = WebhookHandler(os.environ.get(LINE_CHANNEL_SECRET))
 CORS(app)
 #doc
 Swagger(app)
