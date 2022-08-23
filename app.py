@@ -6,7 +6,7 @@ from controller.finance_report_crawler import get_each_stock_finance_report
 # https://github.com/line/line-bot-sdk-python
 from linebot import LineBotApi, WebhookHandler
 from linebot.exceptions import InvalidSignatureError
-from linebot.models import MessageEvent, TextMessage, TextSendMessage
+from linebot.models import *
 
 app = Flask(__name__)
 
@@ -40,5 +40,9 @@ def handle_message(event):
     res = get_each_stock_finance_report(stock_id, report_type)
     print(11111, res)
     # Send To Line
-    reply = TextSendMessage(text='''{}'''.format(res))
+    # reply = TextSendMessage(text='''{}'''.format(res))
+    reply = ImageSendMessage(
+        original_content_url='dataframe.png',
+        preview_image_url='dataframe.png'
+    )
     line_bot_api.reply_message(event.reply_token, reply)

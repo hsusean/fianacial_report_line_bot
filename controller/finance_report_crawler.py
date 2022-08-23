@@ -1,5 +1,6 @@
 import requests
 import pandas as pd
+import dataframe_image as dfi
 from datetime import datetime
 def quarter_transfer(month_chinese):
     if '3月' in month_chinese or '1季' in month_chinese:
@@ -99,6 +100,8 @@ def get_each_stock_finance_report(stock_id, report_type, year=None, season=None,
                     df_cols[idx] = ''
     df.columns = df_cols
     df = df.set_index('item')
+    dfi.export(df, 'dataframe.png')
+    print(11111, df)
     return df
 
 def get_each_stock_annual_report(stock_id, report_type, years=None):
@@ -230,4 +233,4 @@ if __name__ == '__main__':
     stock_id = 6669
     data = get_each_stock_finance_report(6669,'a')
     # index_table = finance_index(stock_id)
-    print(data)
+    # print(data)
