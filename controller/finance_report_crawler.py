@@ -100,8 +100,9 @@ def get_each_stock_finance_report(stock_id, report_type, year=None, season=None,
                     df_cols[idx] = ''
     df.columns = df_cols
     df = df.set_index('item')
-    dfi.export(df, 'dataframe.png')
     print(11111, df)
+    dfi.export(df, 'dataframe.png')
+    
     return df
 
 def get_each_stock_annual_report(stock_id, report_type, years=None):
