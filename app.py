@@ -37,12 +37,12 @@ def handle_message(event):
 
     report_type = get_message[0]
     stock_id = get_message[1:]
-    # res = get_each_stock_finance_report(stock_id, report_type)
-    # print(111111, res)
+    res = get_each_stock_finance_report(stock_id, report_type)
+    print(11111, res)
     # Send To Line
-    # reply = TextSendMessage(text='''{}'''.format(res))
-    reply = ImageSendMessage(
-        original_content_url='/app/dataframe.png',
-        preview_image_url='/app/dataframe.png'
-    )
+    reply = TextSendMessage(text='''{}'''.format(res))
+    # reply = ImageSendMessage(
+    #     original_content_url='./dataframe.png',
+    #     preview_image_url='./dataframe.png'
+    # )
     line_bot_api.reply_message(event.reply_token, reply)
