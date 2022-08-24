@@ -2,6 +2,7 @@ import requests
 import pandas as pd
 import dataframe_image as dfi
 from datetime import datetime
+import os
 def quarter_transfer(month_chinese):
     if '3月' in month_chinese or '1季' in month_chinese:
         return 'Q1'
@@ -101,6 +102,7 @@ def get_each_stock_finance_report(stock_id, report_type, year=None, season=None,
     df.columns = df_cols
     df = df.set_index('item')
     print(11111, df)
+    print(11112, os.getcwd())
     dfi.export(df, 'dataframe.png')
     
     return df
