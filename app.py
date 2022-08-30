@@ -7,6 +7,7 @@ from controller.finance_report_crawler import get_each_stock_finance_report
 from linebot import LineBotApi, WebhookHandler
 from linebot.exceptions import InvalidSignatureError
 from linebot.models import *
+from controller.generate_graph_url import upload
 
 app = Flask(__name__)
 
@@ -41,8 +42,9 @@ def handle_message(event):
     print(11111, res)
     # Send To Line
     # reply = TextSendMessage(text='''{}'''.format(res))
+    graph_url = upload('/app/123.png')
     reply = ImageSendMessage(
-        original_content_url='/app/123.png',
-        preview_image_url='/app/123.png'
+        original_content_url=graph_url,
+        preview_image_url=graph_url
     )
     line_bot_api.reply_message(event.reply_token, reply)
