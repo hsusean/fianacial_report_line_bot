@@ -18,7 +18,7 @@ refresh_token= 'b746be69672c2e18e63353f857b2199828658bb4'
 
 # {'access_token': 'f1543b940f4cccefd81f57158e258bfa888d5c5f', 'expires_in': 315360000, 'token_type': 'bearer', 'scope': None, 'refresh_token': 'b746be69672c2e18e63353f857b2199828658bb4', 'account_id': 165138265, 'account_username': 'hsusean1219'}
 
-def upload(file_path, album , name = 'jCvv6NM' ,title = 'test-title' ):
+def upload(file_path, album='jCvv6NM' , name = 'test-name!' ,title = 'test-title' ):
     client = ImgurClient(client_id, client_secret, access_token, refresh_token)
     config = {
         'album':  album,
@@ -33,5 +33,6 @@ def upload(file_path, album , name = 'jCvv6NM' ,title = 'test-title' ):
 
     return image['link']
 
-image = upload('C:\\Users\\User\\Pictures\\ohtani.jpg')
-print(image)
+if __name__ == '__main__':
+    image = upload('C:\\Users\\User\\Pictures\\ohtani.jpg', 'jCvv6NM')
+    print(image)
