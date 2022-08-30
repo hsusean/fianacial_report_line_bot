@@ -103,7 +103,7 @@ def get_each_stock_finance_report(stock_id, report_type, year=None, season=None,
     df = df.set_index('item')
     print(11111, df)
     print(11112, os.getcwd())
-    dfi.export(df, '/app/dataframe1.png')
+    dfi.export(df, 'dataframe1.png')
     
     return df
 
