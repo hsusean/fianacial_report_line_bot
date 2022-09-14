@@ -3,6 +3,15 @@ import pandas as pd
 import dataframe_image as dfi
 from datetime import datetime
 import os
+from matplotlib.font_manager import FontProperties
+import matplotlib.pyplot as plt
+from pdf2image import convert_from_path
+from matplotlib.backends.backend_pdf import PdfPages
+# plt.rcParams['font.sans-serif'] = ['Microsoft JhengHei'] 
+# plt.rcParams['axes.unicode_minus'] = False
+
+
+
 def quarter_transfer(month_chinese):
     if '3月' in month_chinese or '1季' in month_chinese:
         return 'Q1'
@@ -103,9 +112,27 @@ def get_each_stock_finance_report(stock_id, report_type, year=None, season=None,
     df = df.set_index('item')
     print(11111, df)
     print(11112, os.getcwd())
+    # myfontprops = FontProperties(
+    #                     fname='./.fonts/TaipeiSansTCBeta-Regular.ttf')#微软雅黑
+    # # TaipeiSansTCBeta-Regular
+    df.to_excel('123.xlsx')
 
-    # TaipeiSansTCBeta-Regular
-    dfi.export(df, '123.png',table_conversion='matplotlib')
+    
+    # 利用 Workbook 建立一個新的工作簿
+    plt.rcParams['font.sans-serif'] = ['TaipeiSansTCBeta-Regular']
+    fig, ax =plt.subplots(figsize=(12,4))
+    ax.axis('tight')
+    ax.axis('off')
+    the_table = ax.table(cellText=df.values,colLabels=df.columns,loc='center')
+    pp = PdfPages("foo.pdf")
+    pp.savefig(fig, bbox_inches='tight')
+    pp.close()
+
+    
+    pages = convert_from_path('foo.pdf', 500)
+    for page in pages:
+        page.save('out.jpg', 'JPEG')
+    # dfi.export(df, '123.png',table_conversion='matplotlib')
     
     return df
 

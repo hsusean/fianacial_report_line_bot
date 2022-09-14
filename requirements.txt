@@ -16,3 +16,4 @@ pandas
 lxml
 dataframe-image
 imgurpython==1.1.7
+pdf2image==1.16.0
