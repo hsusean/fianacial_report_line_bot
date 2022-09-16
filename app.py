@@ -42,7 +42,7 @@ def handle_message(event):
     print(11111, res)
     # Send To Line
     # reply = TextSendMessage(text='''{}'''.format(res))
-    graph_url = upload('/app/123.png')
+    graph_url = upload('/app/out.jpg')
     reply = ImageSendMessage(
         original_content_url=graph_url,
         preview_image_url=graph_url

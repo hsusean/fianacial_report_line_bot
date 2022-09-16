@@ -110,7 +110,7 @@ def get_each_stock_finance_report(stock_id, report_type, year=None, season=None,
                     df_cols[idx] = ''
     df.columns = df_cols
     df = df.set_index('item')
-    print(11111, df)
+    print(11111, df.head())
     print(11112, os.getcwd())
     # myfontprops = FontProperties(
     #                     fname='./.fonts/TaipeiSansTCBeta-Regular.ttf')#微软雅黑
@@ -123,10 +123,10 @@ def get_each_stock_finance_report(stock_id, report_type, year=None, season=None,
     fig, ax =plt.subplots(figsize=(12,4))
     ax.axis('tight')
     ax.axis('off')
-    the_table = ax.table(cellText=df.values,colLabels=df.columns,loc='center')
+    the_table = ax.table(cellText=df.values,colLabels=df.columns, rowLabels=df.index ,loc='center')
     pp = PdfPages("foo.pdf")
     pp.savefig(fig, bbox_inches='tight')
-    pp.close()
+    pp.close()  
 
     
     pages = convert_from_path('foo.pdf', 500)
