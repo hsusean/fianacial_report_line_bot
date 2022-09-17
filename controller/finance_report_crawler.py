@@ -119,7 +119,7 @@ def get_each_stock_finance_report(stock_id, report_type, year=None, season=None,
 
     
     # 利用 Workbook 建立一個新的工作簿
-    plt.rcParams['font.sans-serif'] = ['TaipeiSansTCBeta-Regular']
+    plt.rcParams['font.family'] = ['TaipeiSansTCBeta-Regular']
     fig, ax =plt.subplots(figsize=(12,4))
     ax.axis('tight')
     ax.axis('off')
