@@ -129,7 +129,7 @@ def get_each_stock_finance_report(stock_id, report_type, year=None, season=None,
     pp.close()  
 
     
-    pages = convert_from_path('foo.pdf', 500)
+    pages = convert_from_path('/app/foo.pdf', 500)
     for page in pages:
         page.save('out.jpg', 'JPEG')
     # dfi.export(df, '123.png',table_conversion='matplotlib')
